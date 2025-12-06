@@ -1,1 +1,1091 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chinh Thai Huu (Jason) - DevOps Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #0b1020;
+      --bg-section: #f9fafb;
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-soft: #ecfdf5;
+      --accent: #22c55e;
+      --text-main: #0f172a;
+      --text-sub: #6b7280;
+      --white: #ffffff;
+      --border-soft: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout wrappers */
+    .page {
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 50%, #020617 100%);
+      color: var(--white);
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Header / Nav */
+    .nav {
+      padding: 1.1rem 0 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .nav-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #22c55e, #16a34a, #111827);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: none;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+      .nav-cta {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.3rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 15px 30px rgba(16, 185, 129, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 38px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: #e5e7eb;
+      background: transparent;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 2.5rem 0 3rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      }
+    }
+
+    .hero-left {
+      padding-right: 0.5rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      margin-bottom: 1rem;
+      gap: 0.45rem;
+    }
+
+    .hero-badge-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 4vw, 2.9rem);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #e5e7eb;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-tagline {
+      font-size: 0.92rem;
+      color: #cbd5f5;
+      max-width: 34rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.8rem;
+      font-size: 0.78rem;
+    }
+
+    .pill-soft {
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #e5e7eb;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    .hero-meta-item strong {
+      display: block;
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .hero-photo-bg {
+      position: absolute;
+      inset: 14%;
+      background: radial-gradient(circle at top, rgba(15, 118, 110, 0.4), transparent 65%);
+      border-radius: 36px;
+      pointer-events: none;
+    }
+
+    .hero-photo-card {
+      position: relative;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.8),
+        0 20px 60px rgba(0, 0, 0, 0.75);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 1));
+    }
+
+    .hero-photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-photo-tag {
+      position: absolute;
+      bottom: 1.1rem;
+      left: 1.4rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      color: #e5e7eb;
+      font-size: 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    /* MAIN SECTIONS WRAPPER */
+    .main {
+      background: var(--bg-section);
+      color: var(--text-main);
+      padding: 3rem 0 0;
+      border-radius: 30px 30px 0 0;
+      margin-top: 2rem;
+    }
+
+    /* About/Biography section */
+    .about-section {
+      padding-bottom: 3rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 860px) {
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid var(--border-soft);
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    .card-header {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      color: var(--text-sub);
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-sub {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      margin-bottom: 1rem;
+    }
+
+    .card-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.3rem 0.7rem;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .label {
+      font-weight: 600;
+      color: var(--text-sub);
+    }
+
+    .card-actions {
+      margin-top: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .card-links {
+      margin-top: 0.9rem;
+      font-size: 0.92rem;
+    }
+
+    .card-links a {
+      color: var(--primary);
+      font-weight: 500;
+      margin-right: 0.5rem;
+    }
+
+    .card-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Small avatar card on the right */
+    .mini-profile {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 600px) {
+      .mini-profile {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .mini-photo {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+    }
+
+    .mini-meta {
+      font-size: 0.9rem;
+    }
+
+    .mini-meta h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .mini-meta p {
+      color: var(--text-sub);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1.1rem;
+      margin-top: 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    .stat-item {
+      padding: 0.9rem 1rem;
+      border-radius: 14px;
+      background: var(--primary-soft);
+      border: 1px solid #d1fae5;
+      text-align: center;
+    }
+
+    .stat-item strong {
+      display: block;
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+    }
+
+    /* Section heading */
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .section-pill {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-sub);
+    }
+
+    /* Experience / Projects */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 1.8rem;
+      padding-bottom: 3rem;
+    }
+
+    @media (max-width: 880px) {
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .timeline-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-role {
+      font-weight: 600;
+    }
+
+    .timeline-company {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+
+    .timeline-time {
+      font-size: 0.8rem;
+      color: var(--primary-dark);
+      white-space: nowrap;
+    }
+
+    .timeline-body {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      margin-top: 0.3rem;
+    }
+
+    .timeline-body ul {
+      margin-left: 1.1rem;
+      margin-top: 0.2rem;
+    }
+
+    .timeline-body li + li {
+      margin-top: 0.18rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+      font-size: 0.78rem;
+    }
+
+    .chip {
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      color: #4b5563;
+    }
+
+    /* Skills & Education */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 1.8rem;
+      padding-bottom: 3rem;
+    }
+
+    @media (max-width: 880px) {
+      .skills-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .skill-group {
+      margin-bottom: 0.9rem;
+      font-size: 0.92rem;
+    }
+
+    .skill-group-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-item {
+      font-size: 0.92rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .edu-school {
+      font-weight: 600;
+    }
+
+    .edu-detail {
+      color: var(--text-sub);
+    }
+
+    .edu-time {
+      font-size: 0.82rem;
+      color: var(--primary-dark);
+    }
+
+    .cert-item {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      color: var(--text-sub);
+    }
+
+    .cert-item span {
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-right: 0.4rem;
+    }
+
+    /* Portfolio (My Success Work) */
+    .portfolio {
+      padding-bottom: 2.5rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .portfolio-item {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background: #ffffff;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .portfolio-caption {
+      padding: 0.55rem 0.7rem 0.8rem;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    /* Footer */
+    .footer {
+      padding: 1.4rem 0 1.8rem;
+      border-top: 1px solid var(--border-soft);
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="container">
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="nav-logo">JT</div>
+          <span>UI Portfolio</span>
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-cta">
+          <a href="#contact" class="btn btn-ghost">Contact</a>
+          <a href="#hire" class="btn btn-primary">Hire Me</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <div class="hero-badge">
+            <div class="hero-badge-dot"></div>
+            <span>Available for DevOps / Cloud roles</span>
+          </div>
+          <h1 class="hero-title">
+            Hi, I'm <span>Chinh Thai Huu (Jason)</span>
+          </h1>
+          <div class="hero-subtitle">DevOps Engineer</div>
+          <p class="hero-tagline">
+            Dynamic and solution-oriented DevOps engineer with deep expertise in CI/CD, AWS, and containerized systems.
+            I help teams automate deployments, improve reliability, and scale infrastructure smoothly.
+          </p>
+          <div class="hero-pills">
+            <div class="pill-soft">CI/CD</div>
+            <div class="pill-soft">AWS</div>
+            <div class="pill-soft">Containerization</div>
+            <div class="pill-soft">Kubernetes</div>
+            <div class="pill-soft">Agile / Scrum</div>
+          </div>
+          <div class="hero-actions" id="hire">
+            <a href="#contact" class="btn btn-primary">Hire Me</a>
+            <a href="CV.pdf" class="btn btn-ghost">Download CV</a>
+          </div>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <strong>Location</strong>
+              Tan Giang ward, Ha Tinh city, Ha Tinh province
+            </div>
+            <div class="hero-meta-item">
+              <strong>Contact</strong>
+              0946 341 782 · huuchinhdev@gmail.com
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-photo-wrap">
+            <div class="hero-photo-bg"></div>
+            <div class="hero-photo-card">
+              <!-- Thay avatar.jpg bằng ảnh của bạn -->
+              <img src="./avatar.jpg" alt="Jason portrait" />
+              <div class="hero-photo-tag">DevOps · Cloud · SRE mindset</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <section id="about" class="about-section">
+        <div class="container about-grid">
+          <div class="card">
+            <div class="card-header">My Biography</div>
+            <h2 class="card-title">DevOps Engineer based in Viet Nam</h2>
+            <p class="card-sub">
+              Dynamic and solution-oriented software developer with deep expertise in CI/CD pipelines and Agile (Scrum).
+              Experienced in automating and optimizing deployments on AWS and containerized environments to ensure
+              robust, scalable systems. Strong communicator who bridges technical and non-technical stakeholders,
+              thrives in fast-paced environments, and is committed to delivering high-quality results.
+            </p>
+
+            <div class="card-row">
+              <span class="label">Name:</span>
+              <span>Chinh Thai Huu (Jason)</span>
+
+              <span class="label">Role:</span>
+              <span>DevOps Engineer</span>
+
+              <span class="label">Phone:</span>
+              <span>0946 341 782</span>
+
+              <span class="label">Email:</span>
+              <span>huuchinhdev@gmail.com</span>
+            </div>
+
+            <div class="card-actions">
+              <a href="mailto:huuchinhdev@gmail.com" class="btn btn-primary">Hire Me</a>
+              <a href="CV.pdf" class="btn btn-ghost">Download CV</a>
+            </div>
+
+            <div class="card-links">
+              Follow me on:
+              <a href="#">LinkedIn</a>
+              <a href="#">GitHub</a>
+              <a href="#">Facebook</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="mini-profile">
+              <div class="mini-photo">
+                <!-- Có thể dùng cùng ảnh avatar hoặc ảnh khác dạng trắng đen -->
+                <img src="./avatar.jpg" alt="Jason profile" />
+              </div>
+              <div class="mini-meta">
+                <h3>DevOps & Cloud Engineer</h3>
+                <p>
+                  Focusing on cloud-native solutions, containerization, and infrastructure as code. I love building
+                  reliable systems and collaborating closely with development teams.
+                </p>
+                <p><strong>Currently:</strong> DevOps Engineer at CMC Global &amp; FPT Software experience.</p>
+              </div>
+            </div>
+
+            <div class="stats">
+              <div class="stat-item">
+                <strong>3+</strong>
+                Years of Experience
+              </div>
+              <div class="stat-item">
+                <strong>10+</strong>
+                Cloud / Migration Projects
+              </div>
+              <div class="stat-item">
+                <strong>3</strong>
+                Cloud Certifications
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE & PROJECTS -->
+      <section id="experience">
+        <div class="container two-col">
+          <div>
+            <div class="section-heading">
+              <h2 class="section-title">Work Experience</h2>
+              <div class="section-pill">Since 2022</div>
+            </div>
+            <div class="card">
+              <div class="timeline-item">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-role">DevOps Engineer</div>
+                    <div class="timeline-company">CMC Global</div>
+                  </div>
+                  <div class="timeline-time">02/2025 – Now</div>
+                </div>
+                <div class="timeline-body">
+                  <ul>
+                    <li>Containerizing and migrating systems from on-premise to cloud.</li>
+                    <li>Monitoring and troubleshooting incidents &amp; alerts in production.</li>
+                    <li>Developing and maintaining CI/CD pipelines.</li>
+                  </ul>
+                  <div class="chips">
+                    <span class="chip">AWS</span>
+                    <span class="chip">Docker</span>
+                    <span class="chip">Terraform</span>
+                    <span class="chip">Bash</span>
+                    <span class="chip">GitHub Actions</span>
+                    <span class="chip">Jenkins</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-role">DevOps Engineer</div>
+                    <div class="timeline-company">FPT Software</div>
+                  </div>
+                  <div class="timeline-time">06/2022 – 01/2025</div>
+                </div>
+                <div class="timeline-body">
+                  <ul>
+                    <li>Containerizing and migrating systems from on-premise to cloud.</li>
+                    <li>Monitoring and troubleshooting incidents &amp; alerts in production.</li>
+                    <li>Provisioning infrastructure using Terraform, CloudFormation, etc.</li>
+                  </ul>
+                  <div class="chips">
+                    <span class="chip">AWS</span>
+                    <span class="chip">Docker</span>
+                    <span class="chip">ECS/EKS</span>
+                    <span class="chip">Terraform</span>
+                    <span class="chip">CloudFormation</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="projects">
+            <div class="section-heading">
+              <h2 class="section-title">Highlighted Projects</h2>
+              <div class="section-pill">My Success Work</div>
+            </div>
+            <div class="card">
+              <div class="timeline-item">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-role">System Administration</div>
+                    <div class="timeline-company">System Administrator</div>
+                  </div>
+                  <div class="timeline-time">06/2022 – 11/2022</div>
+                </div>
+                <div class="timeline-body">
+                  <ul>
+                    <li>Troubleshot issues using monitoring tools and logs.</li>
+                    <li>Patched servers and resolved major incidents.</li>
+                    <li>Collaborated closely with client teams to handle incidents.</li>
+                  </ul>
+                  <div class="chips">
+                    <span class="chip">PagerDuty</span>
+                    <span class="chip">DataDog</span>
+                    <span class="chip">ServiceNow</span>
+                    <span class="chip">Shell</span>
+                    <span class="chip">Python</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-role">System Migration #1</div>
+                    <div class="timeline-company">DevOps Engineer</div>
+                  </div>
+                  <div class="timeline-time">12/2022 – 07/2023</div>
+                </div>
+                <div class="timeline-body">
+                  <ul>
+                    <li>Containerized and migrated legacy systems from on-premise to AWS.</li>
+                    <li>Improved system performance with client teams.</li>
+                    <li>Troubleshot incidents and supported development teams.</li>
+                    <li>Provisioned infrastructure using AWS CloudFormation.</li>
+                  </ul>
+                  <div class="chips">
+                    <span class="chip">Docker</span>
+                    <span class="chip">ECS</span>
+                    <span class="chip">ECR</span>
+                    <span class="chip">EC2</span>
+                    <span class="chip">VPC</span>
+                    <span class="chip">RDS</span>
+                    <span class="chip">Lambda</span>
+                    <span class="chip">StepFunction</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-role">System Migration #2</div>
+                    <div class="timeline-company">DevOps Engineer</div>
+                  </div>
+                  <div class="timeline-time">03/2023 – 01/2024</div>
+                </div>
+                <div class="timeline-body">
+                  <ul>
+                    <li>Containerized and migrated systems from on-premise to AWS.</li>
+                    <li>Provisioned infrastructure using Terraform.</li>
+                  </ul>
+                  <div class="chips">
+                    <span class="chip">Docker</span>
+                    <span class="chip">ECS</span>
+                    <span class="chip">ECR</span>
+                    <span class="chip">Terraform</span>
+                    <span class="chip">DMS</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-role">System Provision</div>
+                    <div class="timeline-company">DevOps Engineer</div>
+                  </div>
+                  <div class="timeline-time">02/2024 – 06/2024</div>
+                </div>
+                <div class="timeline-body">
+                  <ul>
+                    <li>Provisioned infrastructure using Terraform.</li>
+                    <li>Focused on AWS EKS, ECR, RDS, VPC, IAM, S3, CloudFront.</li>
+                  </ul>
+                  <div class="chips">
+                    <span class="chip">Terraform</span>
+                    <span class="chip">EKS</span>
+                    <span class="chip">ECR</span>
+                    <span class="chip">RDS</span>
+                    <span class="chip">S3</span>
+                    <span class="chip">CloudFront</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-header">
+                  <div>
+                    <div class="timeline-role">System Maintenance</div>
+                    <div class="timeline-company">DevOps Engineer</div>
+                  </div>
+                  <div class="timeline-time">06/2024 – Now</div>
+                </div>
+                <div class="timeline-body">
+                  <ul>
+                    <li>Monitored system health and troubleshot issues.</li>
+                    <li>Worked with Azure Synapse pipelines and Cosmos DB.</li>
+                  </ul>
+                  <div class="chips">
+                    <span class="chip">Azure Synapse</span>
+                    <span class="chip">Cosmos DB</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">Bash</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS & EDUCATION -->
+      <section id="skills">
+        <div class="container skills-grid">
+          <div>
+            <div class="section-heading">
+              <h2 class="section-title">Skills & Tech Stack</h2>
+              <div class="section-pill">What I use</div>
+            </div>
+            <div class="card">
+              <div class="skill-group">
+                <div class="skill-group-title">Scripting</div>
+                <div>Shell, Python</div>
+              </div>
+              <div class="skill-group">
+                <div class="skill-group-title">Containerization &amp; Orchestration</div>
+                <div>Docker, ECS, EKS, Kubernetes</div>
+              </div>
+              <div class="skill-group">
+                <div class="skill-group-title">Cloud &amp; Infrastructure as Code</div>
+                <div>AWS, CloudFormation, Terraform</div>
+              </div>
+              <div class="skill-group">
+                <div class="skill-group-title">CI/CD</div>
+                <div>GitLab CI/CD, Jenkins, GitHub Actions</div>
+              </div>
+              <div class="skill-group">
+                <div class="skill-group-title">Monitoring &amp; Incident</div>
+                <div>PagerDuty, DataDog, ServiceNow</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-heading">
+              <h2 class="section-title">Education & Certifications</h2>
+              <div class="section-pill">Background</div>
+            </div>
+            <div class="card">
+              <div class="edu-item">
+                <div class="edu-school">Duy Tan University, Da Nang</div>
+                <div class="edu-detail">
+                  Software Engineering – Carnegie Mellon University International Program
+                </div>
+                <div class="edu-time">09/2018 – 06/2022</div>
+              </div>
+
+              <div class="edu-item">
+                <div class="skill-group-title">Certifications</div>
+                <div class="cert-item">
+                  <span>2022</span>Microsoft Certified: Azure Fundamentals
+                </div>
+                <div class="cert-item">
+                  <span>2024</span>AWS Certified Cloud Practitioner
+                </div>
+                <div class="cert-item">
+                  <span>2025</span>Microsoft Certified: Azure Network Engineer Associate
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO GRID (Ảnh minh họa) -->
+      <section class="portfolio">
+        <div class="container">
+          <div class="section-heading">
+            <h2 class="section-title">My Success Work</h2>
+            <div class="section-pill">Snapshots</div>
+          </div>
+          <div class="portfolio-grid">
+            <!-- Thay src bằng ảnh thật project của bạn nếu có -->
+            <div class="portfolio-item">
+              <img src="work1.jpg" alt="Cloud migration dashboard" />
+              <div class="portfolio-caption">AWS migration dashboard &amp; monitoring view.</div>
+            </div>
+            <div class="portfolio-item">
+              <img src="work2.jpg" alt="CI/CD pipeline" />
+              <div class="portfolio-caption">GitLab / Jenkins CI/CD pipeline for microservices.</div>
+            </div>
+            <div class="portfolio-item">
+              <img src="work3.jpg" alt="Kubernetes cluster" />
+              <div class="portfolio-caption">Kubernetes workloads visualization and metrics.</div>
+            </div>
+            <div class="portfolio-item">
+              <img src="work4.jpg" alt="On-call operations" />
+              <div class="portfolio-caption">On-call operations and incident response workflow.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT / FOOTER -->
+      <section id="contact">
+        <div class="container">
+          <div class="card">
+            <div class="section-heading">
+              <h2 class="section-title">Let’s Work Together</h2>
+              <div class="section-pill">Contact</div>
+            </div>
+            <p style="font-size:0.94rem; color:var(--text-sub); margin-bottom:0.9rem;">
+              If you are looking for a DevOps / Cloud engineer to help with automation, infrastructure as code, or
+              production reliability, feel free to reach out.
+            </p>
+            <div class="card-row" style="margin-top:0.2rem;">
+              <span class="label">Email:</span>
+              <span><a href="mailto:huuchinhdev@gmail.com">huuchinhdev@gmail.com</a></span>
+
+              <span class="label">Phone:</span>
+              <span>0946 341 782</span>
+
+              <span class="label">Location:</span>
+              <span>Tan Giang ward, Ha Tinh city, Ha Tinh province</span>
+            </div>
+          </div>
+
+          <div class="footer">
+            © 2025 Chinh Thai Huu (Jason). Last updated December 2025. Crafted for GitHub Pages portfolio.
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
